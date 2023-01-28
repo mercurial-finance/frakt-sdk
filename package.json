@@ -1,26 +1,21 @@
 {
-  "name": "@frakt-protocol/frakt-sdk",
-  "version": "0.8.6",
+  "name": "@mercurial-finance/frakt-sdk",
+  "version": "0.0.1",
   "description": "Frakt SDK for interacting with frakt.xyz protocols",
   "keywords": [
     "Frakt",
     "Solana"
   ],
   "author": "Vedamir Efanov",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "files": [
-    "lib/**/*"
+    "dist/**"
   ],
   "scripts": {
-    "build": "tsc",
-    "test": "jest --config jestconfig.json",
-    "format": "prettier --write \"src/**/*.ts\"",
-    "docs": "typedoc src/index.ts",
-    "minor": "npm version minor",
-    "patch": "npm version patch",
-    "publish_prerelease": "npm version prerelease --preid beta && npm run build && npm publish --tag beta",
-    "prepare": "husky install"
+    "test": "node --inspect -r ts-node/register ./test/index.ts",
+    "build": "tsup"
   },
   "dependencies": {
     "@project-serum/anchor": "0.24.2",
@@ -39,6 +34,7 @@
     "mz": "^2.7.0",
     "prettier": "^2.6.2",
     "ts-jest": "^27.1.4",
+    "tsup": "^6.5.0",
     "typedoc": "^0.22.16",
     "typescript": "^4.6.3"
   }
